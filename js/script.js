@@ -1,55 +1,83 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("modal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalStudio = document.getElementById("modalStudio");
-  const modalDescription = document.getElementById("modalDescription");
-  const closeBtn = document.getElementById("closeBtn");
-  const projects = document.querySelectorAll(".project");
-  const themeToggleBtn = document.getElementById("themeToggle");
+(() => {
+  const modal = document.getElementById('modal');
+  const closeBtn = document.getElementById('closeBtn');
+  const titleEl = document.getElementById('modalTitle');
+  const studioEl = document.getElementById('modalStudio');
+  const descEl = document.getElementById('modalDescription');
+  const techEl = document.getElementById('modalTech');
+  const workEl = document.getElementById('modalWork');
+  const videoEl = document.getElementById('modalVideo');
 
-  // Focusable elements inside modal for focus trap
-  function getFocusableElements(container) {
-    return container.querySelectorAll(
-      'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
-    );
-  }
+  function openProjectModal({
+    title = '',
+    studio = '',
+    description = '',
+    tech = '',
+    work = '',
+    video = '',
+  } = {}) {
+    titleEl.textContent = title;
+    studioEl.textContent = studio;
+    descEl.textContent = description;
+    workEl.textContent = `${work}`;
+    videoEl.src = video;
 
-  // Open modal function
-  function openModal(project) {
-    modalTitle.textContent = project.dataset.title;
-    modalStudio.textContent = project.dataset.studio;
-    modalDescription.textContent = project.dataset.description;
-    modal.classList.remove("hidden");
-    modal.classList.add("visible");
-    // Save last focused element to return focus later
-    lastFocusedElement = document.activeElement;
-    // Focus first focusable element in modal
-    const focusableElements = getFocusableElements(modal);
-    if (focusableElements.length) focusableElements[0].focus();
-    document.body.style.overflow = 'hidden'; 
+    techEl.innerHTML = '';
+    tech.split(',').forEach((item) => {
+      const li = document.createElement('li');
+      li.textContent = item.trim();
+      techEl.appendChild(li);
+    });
+
+    modal.classList.remove('hidden');
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }
 
   function closeModal() {
-    modal.classList.add("hidden");
-    modal.classList.remove("visible");
-    if (lastFocusedElement) lastFocusedElement.focus();
-    document.body.style.overflow = ''; 
+    modal.classList.add('hidden');
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+    videoEl.src = '';
+    document.body.style.overflow = '';
   }
 
-  let lastFocusedElement = null;
-
-  projects.forEach(project => {
-    project.setAttribute('tabindex', '0'); 
-    project.addEventListener("click", () => openModal(project));
-  });  
-
-  closeBtn.addEventListener("click", closeModal);
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('show')) {
       closeModal();
     }
   });
 
+  document.querySelectorAll('.project').forEach((project) => {
+    project.setAttribute('role', 'button');
+    project.setAttribute('tabindex', '0');
+
+    const openFromElement = () => {
+      openProjectModal({
+        title: project.dataset.title,
+        studio: project.dataset.studio,
+        description: project.dataset.description,
+        tech: project.dataset.tech,
+        work: project.dataset.work,
+        video: project.dataset.video,
+      });
+    };
+
+    project.addEventListener('click', openFromElement);
+    project.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openFromElement();
+      }
+    });
+  });
+
+  const themeToggleBtn = document.getElementById("themeToggle");
   const currentTheme = localStorage.getItem("theme");
 
   if (currentTheme === "dark") {
@@ -83,4 +111,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateToggleButton();
   });
-});
+})();

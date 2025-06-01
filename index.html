@@ -36,35 +36,38 @@
       </ul>
     </div>
   </header>
-  
 
   <main class="container">
     <div class="project-grid" id="projects">
-      <div class="project" 
-      data-title="Oblivion: Remastered" 
-      data-studio="Bethesda Game Studios" 
-      data-description="-">
-        <img src="images/OR.png" alt="Oblivion: Remastered Cover" />
-        <div class="info">
-          <h3>Oblivion: Remastered</h3>
-          <p>Bethesda Game Studios</p>
-        </div>
+      <div class="project"
+      data-title="Oblivion: Remastered"
+      data-studio="Bethesda Game Studios"
+      data-description="The Elder Scrolls IV: Oblivion™ Remastered modernizes the 2006 Game of the Year with all new stunning visuals and refined gameplay."
+      data-tech="Unreal Engine 5, Gamebryo, C++, Xbox Dev Kit"
+      data-work="I worked on optimizing performance in Oblivion Remastered by reducing hitching in open-world regions and identifying memory leaks to improve overall stability."
+      data-video="https://www.youtube.com/embed/wFJ3PZuAjK4">
+      <img src="images/OR.png" alt="Oblivion Remastered Cover" />
       </div>
-      <div class="project" 
-      data-title="Sea of Thieves" 
-      data-studio="Rare" 
-      data-description="-">
-        <img src="images/SoT.png" alt="Sea of Thieves Cover" />
-        <div class="info">
-          <h3>Sea of Thieves</h3>
-          <p>Rare</p>
-        </div>
-      </div>
+      <div
+      class="project"
+      data-title="Sea of Thieves"
+      data-studio="Rare"
+      data-description="Sea of Thieves is a multiplayer adventure game where players explore an open world, sail ships, hunt treasure, and engage in piracy."
+      data-tech="Unreal Engine 4, C++, Azure, Xbox Live Services"
+      data-work=""
+      data-video="https://www.youtube.com/embed/r5JIBaasuE8"
+      data-store="https://store.steampowered.com/app/2623190/The_Elder_Scrolls_IV_Oblivion_Remastered/">
+      <img src="images/SoT.png" alt="Sea of Thieves Cover" />
+    </div>
     </div>
 
     <section id="about" class="about-section container" style="margin-top:3rem;">
-      <h2>About Me</h2>
-      <p>Brief intro about you, your experience, skills, and passion for game development.</p>
+      <h2>About Me</h2><br>
+      <p>
+        I’m an associate programmer at Third Kind Games with 4 years of experience in C# and C++. I have a strong interest in game security and engine programming, and I’m eager to deepen my expertise in both areas as I grow in the industry.
+        <br><br>
+        In addition to my game development work, I freelance developing software and deploying SCADA systems and servers to track operational data for bulk carrier ships, combining technical skills with real-world industrial applications.
+      </p>
     </section>
   </main>
 
@@ -73,7 +76,24 @@
       <button id="closeBtn" class="close" aria-label="Close modal">&times;</button>
       <h2 id="modalTitle"></h2>
       <h4 id="modalStudio"></h4>
-      <p id="modalDescription"></p>
+      <iframe
+        id="modalVideo"
+        src=""
+        frameborder="0"
+        allowfullscreen
+        title="Game trailer video"
+      ></iframe>
+
+      <div class="modal-details">
+        <div class="modal-work">
+          <p id="modalDescription"></p>
+          <p id="modalWork"></p>
+        </div>
+        <div class="modal-tech">
+          <h4>Tools:</h4>
+          <ul id="modalTech"></ul>
+        </div>
+      </div>
     </div>
   </div>
 
