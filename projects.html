@@ -5,6 +5,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>William Monk Portfolio</title>
       <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="css/cards.css" />
+      <link rel="stylesheet" href="css/modal.css" />
    </head>
    <body>
       <header class="site-header">
@@ -42,7 +44,84 @@
             </ul>
          </div>
       </header>
+
       <div class="content">
+        <div class="project-row">
+          <img src="images/sprigsmo.gif" alt="Sprig & Gizmo" class="project-gif" />
+          <div class="card" 
+               data-title="Sprig & Gizmo"
+               data-text="My final student run studio project at university, Sprig & Gizmo was our first attempt at an Unreal Engine 5 game. During this project, I was responsible for a variety of game systems ranging from game state saving and loading to debug console commands. Outside of my main focus on game systems, I was also responsible for a number of gameplay mechanics, some parts of the game UI, and shared ownership of Character / Camera / Controls for both players."
+          >
+            <h1 class="title">Sprig & Gizmo</h1>
+            <div class="subtitle">
+                <span>UNREAL ENGINE</span>
+                <span>C++</span>
+                <span>SYSTEM ARCHITECTURE</span>
+                <span>GAMEPLAY PROGRAMMING</span>
+            </div>
+            <div class="meta">
+                <span>12 Weeks</span>
+                <span>15 Members</span>
+                <span>Adventure</span>
+            </div>
+            <ul class="features">
+                <li>Save Game System</li>
+                <li>Character / Camera / Controls</li>
+                <li>Gameplay Mechanics</li>
+                <li>UI</li>
+                <li>Build Engineer</li>
+            </ul>
+            <button class="see-more">SEE MORE</button>
+          </div>
+        </div>
+      
+        <div class="project-row reverse">
+          <img src="images/sprigsmo.gif" alt="GIF 1" class="project-gif" />
+          <div class="card" 
+               data-title="PLACEHOLDER"
+               data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
+            <h1 class="title">PLACEHOLDER</h1>
+            <div class="subtitle">
+                <span>PLACEHOLDER</span>
+                <span>PLACEHOLDER</span>
+                <span>PLACEHOLDER</span>
+                <span>PLACEHOLDER</span>
+            </div>
+            <div class="meta">
+                <span>PLACEHOLDER</span>
+                <span>PLACEHOLDER</span>
+                <span>PLACEHOLDER</span>
+            </div>
+            <ul class="features">
+                <li>PLACEHOLDER</li>
+                <li>PLACEHOLDER</li>
+                <li>PLACEHOLDER</li>
+                <li>PLACEHOLDER</li>
+                <li>PLACEHOLDER</li>
+            </ul>
+            <button class="see-more">SEE MORE</button>
+          </div>
+          
+        </div>
+      </div>
+      
+
+      <div id="projectModal" class="modal hidden">
+        <div class="modal-content">
+          <button class="close" id="modalClose">&times;</button>
+          <h2 id="modalTitle">Project Title</h2>
+          <p id="modalText">Project description text goes here.</p>
+      
+          <div class="modal-tech solo">
+            <h4>Tech & Features</h4>
+            <ul id="modalTech">
+              <li>Feature 1</li>
+              <li>Feature 2</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       </div>
       <footer class="site-footer">
          <div class="container footer-container">
@@ -69,6 +148,6 @@
       </footer>
       <script src="js/script.js"></script>
       <script src="js/darkmode.js"></script>
-      <script src="js/modal.js"></script>
+      <script src="js/smallerprojects.js"></script>
    </body>
 </html>
