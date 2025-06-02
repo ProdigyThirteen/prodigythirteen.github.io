@@ -5,6 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>William Monk Portfolio</title>
       <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="css/cards.css" />
       <link rel="stylesheet" href="css/modal.css" />
    </head>
    <body>
@@ -43,9 +44,48 @@
             </ul>
          </div>
       </header>
+
       <div class="content">
-         <main>
-         </main>
+        <div class="project-row reverse">
+          <img src="images/jelly.gif" alt="Jelly Xperiment" class="project-gif" />
+          <div class="card" 
+               data-title="Jelly Xperiment"
+               data-text="A summer game jam between years at University."
+          >
+            <h1 class="title">Jelly Xperiment</h1>
+            <div class="subtitle">
+                <span>UNITY</span>
+                <span>C#</span>
+                <span>GAME JAM</span>
+                <span>TEAM LEAD</span>
+            </div>
+            <div class="meta">
+                <span>7 Days</span>
+                <span>5 Members</span>
+                <span>Puzzle Platformer</span>
+                <span>Solent Game Jam 2023</span>
+            </div>
+            <ul class="features">
+                <li>Game Design</li>
+                <li>UI Design + Programming</li>
+                <li>Gameplay Programming</li>
+                <li>Project Management</li>
+            </ul>
+            <a href="https://prodigy13.itch.io/jelly-xperiment" target="_blank" rel="noopener noreferrer" class="external-link">ITCH.IO</a>
+          </div>
+        </div>
+      </div>
+      
+
+      <div id="projectModal" class="modal hidden">
+        <div class="modal-content">
+          <button class="close" id="modalClose">&times;</button>
+          <h2 id="modalTitle">Project Title</h2>
+          <p id="modalText">Project description text goes here.</p>
+
+        </div>
+      </div>
+
       </div>
       <footer class="site-footer">
          <div class="container footer-container">
@@ -72,6 +112,6 @@
       </footer>
       <script src="js/script.js"></script>
       <script src="js/darkmode.js"></script>
-      <script src="js/modal.js"></script>
+      <script src="js/smallerprojects.js"></script>
    </body>
 </html>
