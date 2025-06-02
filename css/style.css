@@ -13,7 +13,8 @@
   --modal-text-secondary: #777;
   --toggle-bg: #fff;
   --toggle-color: #333;
-  --toggle-glow: rgba(0, 0, 0, 0.1);
+  
+  
   --primary-color: #0077cc;
 }
 
@@ -26,40 +27,64 @@ body.dark-mode {
   --modal-text-secondary: #aaa;
   --toggle-bg: #333;
   --toggle-color: #fdd835;
-  --toggle-glow: rgba(253, 216, 53, 0.7);
   --primary-color: #fdd835; 
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: sans-serif;
   background: var(--bg-color);
   color: var(--text-color);
-  transition: background 0.3s ease, color 0.3s ease;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
   margin-bottom: 2rem;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-.site-header {
+.site-header,
+.site-footer {
   background: var(--project-bg);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
+  padding: 0 0;
+  position: relative;
   z-index: 1000;
 }
 
-.header-container {
+.site-header {
+  top: 0;
+  box-shadow: 0 2px 5px var(--primary-color);
+}
+
+.site-footer {
+  bottom: 0;
+  box-shadow: 0 -2px 5px var(--primary-color);
+}
+
+.header-container,
+.footer-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 80%;
+  margin: 1% 10%;
+  padding: 0 0.5rem;
+  text-align: center;
 }
 
 .logo {
@@ -79,21 +104,19 @@ h1 {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 600;
-  padding: 0.3rem 0.6rem;
+  padding: 0.5rem 0.6rem;
   border-radius: 4px;
   transition: background 0.2s ease;
+  font-size: 140%
 }
 
 .nav-link:hover,
 .nav-link.active {
-  background: var(--primary-color);
-  color: #fff;
+  color: var(--primary-color);
 }
 
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.nav-link:hover {
+  cursor: pointer;
 }
 
 .contact-list {
@@ -101,8 +124,8 @@ h1 {
   gap: 1rem;
   margin: 0;
   padding: 0;
-  align-items: center; 
-  height: 40px; 
+  align-items: center;
+  height: 40px;
 }
 
 .contact-list li {
@@ -143,80 +166,6 @@ h1 {
   transition: transform 0.3s ease;
 }
 
-.container {
-  max-width: 600px; 
-  margin: 2rem auto;
-  padding: 0 0.5rem; 
-  text-align: center;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
-  gap: 1rem;
-  justify-content: center;
-}
-
-.project {
-  aspect-ratio: 2 / 3;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: transform 0.2s;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  position: relative;
-}
-
-.project:hover {
-  transform: scale(1.02);
-}
-
-.project img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: auto;
-  height: 100%;
-  max-width: none;
-  max-height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: contain;
-  z-index: 1;
-}
-
-.info {
-  padding: 0.8rem 1rem;
-  background: var(--project-info-bg);
-  color: #fff;
-  font-weight: 700;
-  font-size: 1rem;
-  text-align: center;
-}
-
-#themeToggle {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: var(--toggle-bg);
-  color: var(--primary-color);
-  border: none;
-  border-radius: 50%;
-  padding: 0.7rem;
-  cursor: pointer;
-  box-shadow: 0 0 5px var(--toggle-glow);
-  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-}
-
-#themeToggle:hover,
-#themeToggle:focus {
-  transform: scale(1.1);
-  outline: none;
-  box-shadow: 0 0 10px var(--toggle-glow);
-}
-
 .about-section {
   margin-top: 3rem;
   text-align: center;
@@ -226,242 +175,40 @@ h1 {
   margin-right: auto;
 }
 
-.project:focus-visible {
-  outline: 3px solid var(--primary-color);
-  outline-offset: 3px;
+#themeToggle:hover {
+  outline: none;
+  box-shadow: 0 0 10px var(--primary-color);
 }
 
-.close:focus {
-  outline: 3px solid var(--primary-color);
-  outline-offset: 2px;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-.container {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 0 0.5rem;
-  text-align: center;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem;
-  justify-content: center;
-}
-
-.project {
-  aspect-ratio: 2 / 3;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+#themeToggle {
+  background: var(--toggle-bg);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 50%;
+  padding: 0.7rem;
   cursor: pointer;
-  transition: transform 0.2s;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  position: relative;
-  background: var(--project-bg);
+  box-shadow: 0 0 5px var(--primary-color);
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
-.project:hover {
-  transform: scale(1.02);
+#themeToggle svg.sun {
+  display: block;
+  fill: var(--primary-color);
+  width: 24px;
+  height: 24px;
 }
 
-.project img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: auto;
-  height: 100%;
-  max-width: none;
-  max-height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: contain;
-  z-index: 1;
+#themeToggle svg.moon {
+  display: none;
+  fill: var(--primary-color);
+  width: 24px;
+  height: 24px;
 }
 
-.info {
-  padding: 0.8rem 1rem;
-  background: var(--project-info-bg);
-  color: #fff;
-  font-weight: 700;
-  font-size: 1rem;
-  text-align: center;
-  z-index: 2;
-}
-
-/* Modal styles */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.modal.hidden {
+body.dark-mode #themeToggle svg.sun {
   display: none;
 }
 
-.modal-content {
-  background: var(--project-bg);
-  color: var(--text-color);
-  padding: 2rem;
-  border-radius: 16px;
-  max-width: 900px;
-  width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 2rem;
-  background: transparent;
-  border: none;
-  color: var(--text-color);
-  cursor: pointer;
-  line-height: 1;
-  transition: color 0.2s ease;
-}
-
-.close:hover,
-.close:focus {
-  color: var(--primary-color);
-  outline: none;
-}
-
-#modalVideo {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: none;
-  border-radius: 12px;
-  background: #000;
-}
-
-.modal-details {
-  display: flex;
-  justify-content: flex-start;
-  gap: 2rem;
-  max-width: 700px;
-  margin: 1.5rem auto 0;
-  padding-left: 1rem;
-  margin-left: 8rem; 
-}
-
-.modal-work, 
-.modal-tech {
-  max-width: 380px; 
-  text-align: left;
-}
-
-.modal-work p {
-  margin: 0.3rem 0;
-}
-
-.modal-tech h4 {
-  margin-bottom: 0.5rem;
-}
-
-.modal-tech ul {
-  list-style-position: inside;
-  padding-left: 0;
-  margin: 0;
-}
-
-
-.modal-tech li {
-  margin-bottom: 0.4rem;
-  color: var(--modal-text-secondary);
-  font-size: 0.95rem;
-}
-
-.store-link {
-  display: inline-block;
-  margin-top: 1rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  text-decoration: none;
-  border: 2px solid var(--primary-color);
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.store-link:hover,
-.store-link:focus {
-  background-color: var(--primary-color);
-  color: var(--bg-color);
-  outline: none;
-}
-
-@media (min-width: 600px) {
-  .modal-details {
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 2rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .modal-content {
-    padding: 1rem;
-    max-width: 95%;
-    max-height: 95vh;
-    border-radius: 12px;
-  }
-}
-
-.modal-stores {
-  margin-top: 1rem;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.modal-stores a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background: var(--project-info-bg);
-  color: var(--text-color);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  transition: background-color 0.2s ease;
-  text-decoration: none;
-}
-
-.modal-stores a:hover,
-.modal-stores a:focus {
-  background: var(--primary-color);
-  color: var(--bg-color);
-  outline: none;
-}
-
-.modal-stores a svg {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
-  pointer-events: none;
+body.dark-mode #themeToggle svg.moon {
+  display: block;
 }
