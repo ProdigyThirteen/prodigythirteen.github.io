@@ -120,7 +120,7 @@
     margin-top: 20px;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1280px) {
     .project-row {
         flex-direction: column !important; 
         max-width: 100%;
