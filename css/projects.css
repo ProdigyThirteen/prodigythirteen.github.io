@@ -48,3 +48,13 @@
   outline: 3px solid var(--primary-color);
   outline-offset: 3px;
 }
+
+@media (max-width: 768px) {
+  .project-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(280px, 1fr)); 
+  gap: 24px;
+  justify-content: center;
+  padding: 20px 0;
+}
+}
