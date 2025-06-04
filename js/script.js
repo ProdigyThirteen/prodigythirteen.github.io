@@ -17,10 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const toggleBtn = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.mobile-nav');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileNav = document.querySelector('.main-nav');
 
-  toggleBtn.addEventListener('click', () => {
-    nav.classList.toggle('active');
+  menuToggle.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
   });
+
 });
