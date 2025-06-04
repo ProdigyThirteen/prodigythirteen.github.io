@@ -9,6 +9,7 @@
       <link rel="stylesheet" href="css/modal.css" />
    </head>
    <body>
+      <div id="particles-js"></div>
       <header class="site-header">
          <div class="header-container">
             <a href="#" class="logo">William Monk</a>
@@ -186,5 +187,12 @@ The code for this project was later used as the foundation of a group project in
       <script src="js/script.js"></script>
       <script src="js/darkmode.js"></script>
       <script src="js/smallerprojects.js"></script>
+
+      <script src="js/particles.js"></script>
+      <script>
+      particlesJS.load('particles-js', 'js/particles.json', function () {
+         console.log('particles.js loaded successfully');
+      });
+      </script>
    </body>
 </html>

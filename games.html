@@ -9,6 +9,8 @@
       <link rel="stylesheet" href="css/modal.css" />
    </head>
    <body>
+      <div id="particles-js"></div>
+
       <header class="site-header">
          <div class="header-container">
             <a href="#" class="logo">William Monk</a>
@@ -131,5 +133,13 @@
       <script src="js/script.js"></script>
       <script src="js/darkmode.js"></script>
       <script src="js/modal.js"></script>
+
+      <script src="js/particles.js"></script>
+      <script>
+      particlesJS.load('particles-js', 'js/particles.json', function () {
+         console.log('particles.js loaded successfully');
+      });
+      </script>
+
    </body>
 </html>
